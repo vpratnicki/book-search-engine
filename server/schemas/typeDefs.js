@@ -21,6 +21,7 @@ const typeDefs = gql`
     }
 
     type Query {
+        me: User
         users: [User]
         user(username: String!): User
         savedBooks(bookId: String!): [Book]
@@ -35,8 +36,6 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
     }
-
-
     `;
 
 // export the typeDefs
