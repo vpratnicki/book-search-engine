@@ -42,7 +42,6 @@ const resolvers = {
         },
 
         login: async (parent, { email, password }) => {
-
             const user = await User.findOne ({ email });
             if (!user) {
               throw new AuthenticationError('Incorrect credentials');
@@ -55,6 +54,20 @@ const resolvers = {
             
             const token = signToken(user);
             return { token, user };
+        },
+
+        saveBook: async (parent, { bookData }, context) => {
+            if (context.user) {
+                const updatedUser = await User
+                    .findOneAndUpdate(
+                        { _id: context.user._id }, 
+                        { $addToSet: { savedBooks: bookData } },
+                        { new: true },
+                    )
+                    .populate('books');
+                return updatedUser;
+            };
+            throw new AuthenticationError("You must be logged in to save books!");
         }
     }
 };
