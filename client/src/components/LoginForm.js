@@ -36,11 +36,12 @@ const LoginForm = () => {
         variables: { ...userFormData }
       });
 
-      const { token, user } = await response.json();
-      console.log(user);
-      Auth.login(token);
-    } catch (err) {
-      console.error(err);
+      // const { token, user } = await response.json();
+      // console.log(user);
+
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
       setShowAlert(true);
     }
 
