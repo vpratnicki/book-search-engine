@@ -7,31 +7,30 @@ const resolvers = {
         me: async (parent, args, context) => {
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
-                .select('-__v -password')
-                .populate('savedBooks');
-    
+                .select('-__v -password');
+
                 return userData;
             }
 
             throw new AuthenticationError('Not logged in');
-        },
-        // get all users
-        users: async () => {
-            return User.find()
-            .select('-__v -password')
-            .populate('savedBooks');
-        },
-        // get a user by username
-        user: async (parent, { username }) => {
-            return User.findOne({ username })
-            .select('-__v -password')
-            .populate('savedBooks');
-        },
-        // get all books
-        savedBooks: async (parent, { bookId }) => {
-            return Book.find()
-            .select('-__v');
-        }
+         },
+        // // get all users
+        // users: async () => {
+        //     return User.find()
+        //     .select('-__v -password')
+        //     .populate('savedBooks');
+        // },
+        // // get a user by username
+        // user: async (parent, { username }) => {
+        //     return User.findOne({ username })
+        //     .select('-__v -password')
+        //     .populate('savedBooks');
+        // },
+        // // get all books
+        // savedBooks: async (parent, { bookId }) => {
+        //     return Book.find()
+        //     .select('-__v');
+        // }
     },
     Mutation: {
         addUser: async (parent, args) => {
@@ -71,6 +70,7 @@ const resolvers = {
         },
 
         removeBook: async (parent, { bookId }, context) => {
+            console.log(bookId);
             if (context.user) {
                 const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
