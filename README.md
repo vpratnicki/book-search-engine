@@ -2,7 +2,7 @@
 
 ## Description
 
-I took a fully functioning Google Books API search engine built with a RESTful API, and refactored it to be a GraphQL API built with Apollo Server. This app was built using the MERN stack, with a React front end, MongoDB database, and Node.js/Express.js server and API. 
+I took a fully functioning application that used a Google Books API search engine built with a RESTful API, and refactored it to be a GraphQL API built with Apollo Server. This app was built using the MERN stack, with a React front end, MongoDB database, and Node.js/Express.js server and API. 
 
 I completed the following:
 
@@ -13,8 +13,8 @@ I completed the following:
 
 ## Table of Contents
 
-- [Installation](#installation)
 - [Deployed Application](#deployed-application)
+- [Usage](#usage)
 - [Contributing](#contributing)
 - [Questions](#questions)
 
@@ -31,7 +31,10 @@ View the demo:
 
 
 
-https://user-images.githubusercontent.com/18556546/209216350-08b457f5-36f0-4b61-9d0d-0c8a988ea639.mp4
+
+
+https://user-images.githubusercontent.com/18556546/209218150-5f0fd768-d365-4a80-a7d1-563be87237e0.mp4
+
 
 
 
